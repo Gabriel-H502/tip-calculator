@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](#)
-- [Live Site URL](#)
+- [Solution URL](https://www.frontendmentor.io/solutions/tip-calculator-using-sass-ZdSLCguov9)
+- [Live Site URL](https://gabriel-h502.github.io/tip-calculator/)
 
 ## My process
 
