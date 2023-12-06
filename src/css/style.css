@@ -1,0 +1,188 @@
+* {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+body {
+  background-color: hsl(185, 41%, 84%);
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+.splitter-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.container {
+  max-width: 1000px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.left-area p {
+  color: hsl(186, 14%, 43%);
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+}
+.left-area .bill-area,
+.left-area .people-area {
+  display: flex;
+  flex-direction: column;
+}
+.left-area .input-area {
+  position: relative;
+}
+.left-area .input-area::before {
+  font-family: "Space Mono", monospace;
+  position: absolute;
+  left: 20px;
+  top: 16%;
+  pointer-events: none;
+  color: hsl(184, 14%, 56%);
+}
+.left-area .bill-input::before {
+  content: url(../../images/icon-dollar.svg);
+}
+.left-area .people-input::before {
+  content: url(../../images/icon-person.svg);
+}
+.left-area .number-input {
+  background-color: hsl(189, 41%, 97%);
+  text-align: end;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  color: hsl(183, 100%, 15%);
+  width: 90%;
+}
+.left-area .number-input::-moz-placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.left-area .number-input::placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.left-area .number-input:border {
+  border: white 1px solid;
+}
+.left-area .tip-area {
+  margin: 35px 0;
+}
+.left-area .tip-area .tip-boxes {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.left-area .tip-area .tip-boxes .tip-select {
+  width: 120px;
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(189, 41%, 97%);
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 6px;
+  transition: transform 0.07s ease-in-out, color 0.07s ease-in-out, background-color 0.07s ease-in-out;
+}
+.left-area .tip-area .tip-boxes .tip-select:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.left-area .tip-area .tip-boxes .tip-select.selected {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  transform: scale(1.05);
+}
+.left-area .tip-area .tip-boxes .custom-number-input {
+  width: 120px;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 6px;
+  border: none;
+}
+.left-area .tip-area .tip-boxes .custom-number-input::-moz-placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.left-area .tip-area .tip-boxes .custom-number-input::placeholder {
+  color: hsl(184, 14%, 56%);
+}
+
+.right-area {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(183, 100%, 15%);
+  padding: 50px;
+  border-radius: 15px;
+  justify-content: space-between;
+  width: 80%;
+}
+.right-area .tips-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.right-area .tip-text-white {
+  color: hsl(189, 41%, 97%);
+  font-size: 0.7rem;
+}
+.right-area .per-person-text {
+  margin-top: 4px;
+  color: hsl(184, 14%, 56%);
+  font-size: 0.6rem;
+}
+.right-area .price {
+  color: hsl(172, 67%, 45%);
+  font-size: 1.8rem;
+}
+.right-area .reset-button {
+  background-color: hsl(183, 95%, 22%);
+  font-size: 0.9rem;
+  color: hsl(183, 100%, 15%);
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+.right-area .reset-button.enabled {
+  background: hsl(172, 67%, 45%);
+  transition: transform 0.07s ease-in-out, background-color 0.1s ease-in-out;
+}
+.right-area .reset-button.enabled:hover {
+  cursor: pointer;
+  background-color: hsl(185, 41%, 84%);
+  transform: scale(1.05);
+}
+
+@media (max-width: 950px) {
+  .splitter-section {
+    margin-top: 100px;
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .left-area .number-input, .left-area .people-area, .left-area .bill-area {
+    width: 100%;
+  }
+  .left-area .tip-boxes {
+    justify-content: center;
+  }
+  .left-area .tip-boxes .tip-select, .left-area .tip-boxes .custom-number-input {
+    width: 170px !important;
+    padding: 10px 0 !important;
+  }
+  .right-area {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */

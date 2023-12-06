@@ -1,0 +1,229 @@
+$strongCyan: hsl(172, 67%, 45%);
+$veryDarkCyan: hsl(183, 100%, 15%);
+$darkGrayishCyan: hsl(186, 14%, 43%);
+$grayish: hsl(184, 14%, 56%);
+$lightGrayish: hsl(185, 41%, 84%);
+$veryLightGrayish: hsl(189, 41%, 97%);
+$mainFont: 'Space Mono', monospace;
+
+@mixin flexColumn() {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    font-family: $mainFont;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+body {
+    background-color: $lightGrayish;
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+}
+
+.splitter-section {
+    @include flexColumn();
+    align-items: center;
+    gap: 50px;
+}
+
+.container {
+    max-width: 1000px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.left-area {
+    p {
+        color: $darkGrayishCyan;
+        font-size: 0.7rem;
+        margin-bottom: 10px;
+    }
+
+    .bill-area,
+    .people-area {
+        @include flexColumn();
+    }
+    
+    .input-area {
+        position: relative;
+    }
+    
+    .input-area::before {
+        font-family: $mainFont;
+        position: absolute;
+        left: 20px;
+        top: 16%;
+        pointer-events: none;
+        color: $grayish;
+    }
+
+    .bill-input::before {
+        content: url(../../images/icon-dollar.svg);
+    }
+
+    .people-input::before {
+        content: url(../../images/icon-person.svg);
+    }
+
+    .number-input {
+        background-color: $veryLightGrayish;
+        text-align: end;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+        color: $veryDarkCyan;
+        width: 90%;
+    }
+
+    .number-input::placeholder {
+        color: $grayish;
+    }
+
+    .number-input:border{
+        border: white 1px solid;
+    }
+
+    .tip-area {
+        margin: 35px 0;
+
+        .tip-boxes {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+
+            .tip-select {
+                width: 120px;
+                background-color: $veryDarkCyan;
+                color: $veryLightGrayish;
+                padding: 5px 0;
+                text-align: center;
+                border-radius: 6px;
+                transition: transform .07s ease-in-out,
+                            color .07s ease-in-out,
+                            background-color .07s ease-in-out;
+            }
+
+            .tip-select:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+            }
+
+            .tip-select.selected {
+                background-color: $strongCyan;
+                color: $veryDarkCyan;
+                transform: scale(1.05);
+            }
+            
+            .custom-number-input {
+                width: 120px;
+                background-color: $veryLightGrayish;
+                color: $veryDarkCyan;
+                padding: 5px 0;
+                text-align: center;
+                border-radius: 6px;
+                border: none;
+
+            }
+            .custom-number-input::placeholder {
+                color: $grayish;
+            }
+        }
+    }
+}
+
+.right-area {
+    @include flexColumn();
+    background-color: $veryDarkCyan;
+    padding: 50px;
+    border-radius: 15px;
+    justify-content: space-between;
+    width: 80%;
+
+    .tips-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    .tip-text-white {
+        color: $veryLightGrayish;
+        font-size: .7rem;
+    }
+
+    .per-person-text {
+        margin-top: 4px;
+        color: $grayish;
+        font-size: .6rem;
+    }
+
+    .price {
+        color: $strongCyan;
+        font-size: 1.8rem;
+    }
+
+    .reset-button {
+        background-color: hsl(183, 95%, 22%);
+        font-size: .9rem;
+        color: $veryDarkCyan;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .reset-button.enabled {
+        background: $strongCyan;
+        transition: transform .07s ease-in-out,
+                    background-color .1s ease-in-out;
+    }
+
+    .reset-button.enabled:hover {
+        cursor: pointer;
+        background-color: $lightGrayish;
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 950px) {
+
+    .splitter-section {
+        margin-top: 100px;
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;
+        @include flexColumn();
+    }
+
+    .left-area {
+
+        .number-input, .people-area, .bill-area {
+            width: 100%;
+        }
+
+        .tip-boxes {
+            // @include flexColumn();
+            justify-content: center;
+
+            .tip-select, .custom-number-input {
+                width: 170px !important;
+                padding: 10px 0 !important;
+            }
+        }
+        
+    }
+
+    .right-area {
+        width: 100%;
+    }
+}
